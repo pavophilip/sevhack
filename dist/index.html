@@ -1,17 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning D3.js</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
-    <link href="/dist/main.bundle.css" rel="stylesheet">
-  </head>
-  <body>
-    <h2 class="center-align">Learning D3.js - The basics</h2>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SevHack</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+  <script
+          src="https://code.jquery.com/jquery-3.1.1.min.js"
+          integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.0/dist/semantic.min.js"></script>
 
-    <div id="root" class="center-align"></div>
+  <link href="/dist/main.bundle.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.0/dist/semantic.min.css">
+</head>
+<body>
+  <div class="ui container">
+    <div class="ui grid">
+      <div class="twelve wide column">
+        <div class="ui segment network-segment">
+          <div class="ui dimmer network-dimmer">
+            <div class="ui indeterminate text loader">
+              Загрузка топологии сети...<br/>
+              <span class="percent-progress"></span>
+            </div>
+          </div>
+          <div class="network-content" id="network"></div>
+          <div class="network-statistic">
+            <div class="ui statistics left">
+              <div class="statistic node-statistic">
+                <div class="value">
+                  <i class="server icon"></i> <span id="node-total-value"></span>
+                </div>
+                <div class="label">
+                  коммутаторов
+                </div>
+              </div>
 
-    <script type="text/javascript" src="/dist/app.bundle.js"></script>
-  </body>
+              <div class="statistic vlan-statistic">
+                <div class="value">
+                  <i class="hubspot icon"></i> <span id="vlan-total-value"></span>
+                </div>
+                <div class="label">
+                  VLAN сетей
+                </div>
+              </div>
+            </div>
+
+            <div class="ui statistics left">
+              <div class="statistic current-vlan-statistic">
+                <div class="text value">
+                  <br/>
+                  VLAN № <span id="current-vlan-value"></span>
+                </div>
+                <div class="label">
+                  Текущая сеть
+                </div>
+              </div>
+            </div>
+
+            <div class="ui statistics right">
+              <!--<div class="statistic node-success-statistic">-->
+                <!--<div class="value">-->
+                  <!--<i class="check icon"></i><span id="node-success-value"></span>-->
+                <!--</div>-->
+                <!--<div class="label">-->
+                  <!--В сети-->
+                <!--</div>-->
+              <!--</div>-->
+
+              <div class="statistic errors-statistic">
+                <div class="value">
+                  <i class="times icon"></i> <span id="errors-total-value"></span>
+                </div>
+                <div class="label">
+                  Ошибок VLAN
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="four wide column">
+        <div class="ui segment sidebar-segment">
+          <h3>Выбрать VLAN</h3>
+          <div class="ui dropdown fluid selection">
+            <input type="hidden" name="vlan">
+            <span class="text">Выбрать VLAN</span>
+            <div class="menu"> </div>
+          </div>
+
+          <h3>Найденные ошибки</h3>
+          <div class="errors-container" style=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="/dist/app.bundle.js"></script>
+</body>
 </html>
