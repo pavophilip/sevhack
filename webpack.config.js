@@ -20,7 +20,16 @@ module.exports = {
   },
   module: {
     rules: [
-      {
+        {
+            test: /\.csv$/,
+            loader: 'csv-loader',
+            options: {
+                dynamicTyping: true,
+                skipEmptyLines: true
+            }
+        },
+
+        {
         test: /\.js$/,
         exclude: [/node_modules/],
         use: [{

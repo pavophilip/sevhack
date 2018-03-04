@@ -1,1 +1,69 @@
-// Import styles here
+$green: #21ba45;
+$blue: #2185d0;
+$red: #db2828;
+
+body{
+}
+.network-content{
+  height: 700px;
+  //width: calc(100% - 300px);
+}
+
+.container{
+  background: #fff;
+  padding: 50px;
+  padding-top: 10px;
+  width: 100% !important;
+}
+
+.network-segment{
+  border: none !important;
+  box-shadow: 0 0px 10px rgba(0,0,0,0.8) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 800px;
+}
+
+.sidebar-segment{
+  height: 100%;
+  margin-right: -50px !important;
+}
+
+.errors-container{
+  .error-item{
+    margin-top: 10px;
+  }
+}
+
+.network-statistic{
+  padding: 5px 20px;
+
+  .statistics{
+    margin: 0 !important;
+
+    .node-statistic .value{
+      color: $blue !important;
+    }
+
+    .vlan-statistic .value{
+      color: $green !important;
+    }
+
+    .errors-statistic .value{
+      color: $red !important;
+    }
+
+    .current-vlan-statistic {
+      padding: 0 40px;
+      .value{
+        color: #3e3e3e !important;
+      }
+    }
+
+    .node-success-statistic .value{
+      color: $green !important;
+    }
+  }
+
+
+}
